@@ -58,7 +58,7 @@ const Post = ({ post, setCurrentId }) => {
         className={classes.cardAction}
         onClick={openPost}
       >
-        <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} product={post.product} />
+        <CardMedia className={classes.media} image={post.selectedFile || 'https://i.ibb.co/xMHfff9/Hello-Apple-Placeholder.jpg'} product={post.product} />
         <div className={classes.overlay}>
           <Typography variant="h6">{post.name}</Typography>
           <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>

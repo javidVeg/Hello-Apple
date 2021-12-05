@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
-import { Paper, Typography, CircularProgress, Divider } from '@material-ui/core/';
+import { Paper, Typography, CircularProgress, Divider, List} from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useHistory, Link } from 'react-router-dom';
+import NewsList from '../News/NewsList';
+
 
 import { getPost, getPostsBySearch } from '../../actions/posts';
 import CommentSection from './CommentSection';
 import useStyles from './styles';
+
 
 const Post = () => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
@@ -60,12 +63,19 @@ const Post = () => {
           <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
           <Divider style={{ margin: '20px 0' }} />
           <Typography variant="body1"><strong>TWITTER API HERE</strong></Typography>
+          <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+            <List>
+              <div className="App">
+                <NewsList />
+              </div>
+            </List>
+          </Paper>
           <Divider style={{ margin: '20px 0' }} />
           <CommentSection post={post} />
           <Divider style={{ margin: '20px 0' }} />
         </div>
         <div className={classes.imageSection}>
-          <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.product} />
+          <img className={classes.media} src={post.selectedFile || 'https://i.ibb.co/xMHfff9/Hello-Apple-Placeholder.jpg" alt="Hello-Apple-Placeholder'} alt={post.selectedFile} />
         </div>
       </div>
       {!!recommendedPosts.length && (

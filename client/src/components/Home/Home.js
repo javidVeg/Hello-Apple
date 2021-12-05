@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
+
 import { getPostsBySearch } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
@@ -62,6 +63,7 @@ const Home = () => {
               />
               <Button onClick={searchPost} className={classes.searchButton} variant="outlined" color="primary">Search</Button>
             </AppBar> */}
+          
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             {(!searchQuery && !tags.length) && (
               <Paper className={classes.pagination} elevation={6}>

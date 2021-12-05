@@ -28,6 +28,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(postData)
 
     if (currentId === 0) {
       dispatch(createPost({ ...postData, name: user?.result?.name }, history));
@@ -78,6 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <Button variant="outlined" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
       </form>
     </Paper>
+    
   );
 };
 
