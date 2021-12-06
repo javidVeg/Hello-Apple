@@ -61,7 +61,7 @@ const Post = ({ post, setCurrentId }) => {
       >
         <CardMedia className={classes.media} image={post.selectedFile || 'https://i.ibb.co/xMHfff9/Hello-Apple-Placeholder.jpg'} product={post.product} />
         <div className={classes.overlay}>
-          <Typography variant="h6">{post.name}</Typography>
+          <Typography variant="h6">{post.product}</Typography>
           <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
         </div>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
@@ -81,9 +81,10 @@ const Post = ({ post, setCurrentId }) => {
         <div className={classes.details}>
           <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
         </div>
-        <Typography className={classes.product} gutterBottom variant="h5" component="h2">{post.product}</Typography>
         <Typography className={classes.product} gutterBottom>Expected Release Date:</Typography>
         <Typography variant="body2" color= "textSecondary" className={classes.product} gutterBottom>{post.releaseDate}</Typography>
+       
+        <Typography className={classes.product} gutterBottom component="h2">Posted by: {post.name}</Typography>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">{post.leakedInfo.split(' ').splice(0, 20).join(' ')}...</Typography>
         </CardContent>

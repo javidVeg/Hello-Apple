@@ -4,7 +4,9 @@ const userSchema = mongoose.Schema({
   name: { type: String, required:  true },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  phoneNumber: { type: Number, required: true },
   id: { type: String },
 });
 
-export default mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);
+export default User;
