@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import EditIcon from '@material-ui/icons/Edit';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
+
 
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
@@ -18,9 +19,9 @@ const Post = ({ post, setCurrentId }) => {
   const history = useHistory();
   const classes = useStyles();
 
-  const userId = user?.result.googleId || user?.result?._id;
+  const userId = user?.result?._id;
   const hasLikedPost = post.likes.find((like) => like === userId);
-
+  
   const handleLike = async () => {
     dispatch(likePost(post._id));
 
@@ -73,7 +74,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: 'white' }}
             size="small"
           >
-            <MoreHorizIcon fontSize="default" />
+            <EditIcon fontSize="default" />
           </Button>
         </div>
         )}
@@ -81,6 +82,8 @@ const Post = ({ post, setCurrentId }) => {
           <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
         </div>
         <Typography className={classes.product} gutterBottom variant="h5" component="h2">{post.product}</Typography>
+        <Typography className={classes.product} gutterBottom>Expected Release Date:</Typography>
+        <Typography variant="body2" color= "textSecondary" className={classes.product} gutterBottom>{post.releaseDate}</Typography>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">{post.leakedInfo.split(' ').splice(0, 20).join(' ')}...</Typography>
         </CardContent>

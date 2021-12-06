@@ -54,6 +54,7 @@ const Post = () => {
           ))}
           </Typography>
           <Typography gutterBottom variant="body1" component="p">{post.leakedInfo}</Typography>
+          <Typography variant="h6"> Expected Release Date:</Typography><Typography gutterBottom variant="body1" component="p">{post.releaseDate}</Typography>
           <Typography variant="h6">
             Created by:
             <Link to={`/creators/${post.name}`} style={{ textDecoration: 'none', color: '#3f51b5' }}>
@@ -66,7 +67,7 @@ const Post = () => {
           <Paper style={{maxHeight: 200, overflow: 'auto'}}>
             <List>
               <div className="App">
-                <NewsList />
+                {/* <NewsList /> */}
               </div>
             </List>
           </Paper>
@@ -78,7 +79,7 @@ const Post = () => {
           <img className={classes.media} src={post.selectedFile || 'https://i.ibb.co/xMHfff9/Hello-Apple-Placeholder.jpg" alt="Hello-Apple-Placeholder'} alt={post.selectedFile} />
         </div>
       </div>
-      {!!recommendedPosts.length && (
+      {/* {!!recommendedPosts.length && (
         <div className={classes.section}>
           <Typography gutterBottom variant="h5">You might also like:</Typography>
           <Divider />
@@ -94,7 +95,7 @@ const Post = () => {
             ))}
           </div>
         </div>
-      )}
+      )} */}
     </Paper>
   );
 };

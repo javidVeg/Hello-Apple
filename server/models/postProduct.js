@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const productSchema = mongoose.Schema({
     product: String,
     leakedInfo: String,
+    releaseDate: String,
     name: String,
     creator: String,
     tags: [String],

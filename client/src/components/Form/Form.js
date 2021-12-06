@@ -9,7 +9,7 @@ import { createPost, updatePost } from '../../actions/posts';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ product: '', leakedInfo: '', tags: [], selectedFile: '' });
+  const [postData, setPostData] = useState({ product: '', leakedInfo: '', releaseDate: '', tags: [], selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.posts.find((leakedInfo) => leakedInfo._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -62,6 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post?.product}"` : 'Post a new product'}</Typography>
         <TextField name="product" variant="outlined" label="Product" fullWidth value={postData.product} onChange={(e) => setPostData({ ...postData, product: e.target.value })} />
+        <TextField name="releaseDate" variant="outlined" label="Expected Release Date" fullWidth value={postData.releaseDate} onChange={(e) => setPostData({ ...postData, releaseDate: e.target.value })} />
         <TextField name="leakedInfo" variant="outlined" label="Leaked or New Information" fullWidth multiline rows={4} value={postData.leakedInfo} onChange={(e) => setPostData({ ...postData, leakedInfo: e.target.value })} />
         <div style={{ padding: '5px 0', width: '94%' }}>
           <ChipInput
