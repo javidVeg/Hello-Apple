@@ -11,7 +11,7 @@ const NewsList = () => {
  
     useEffect(() => {
         const getArticles = async () => {
-            const response = await axios.get(`https://newsapi.org/v2/everything?q=${post.product}&language=en&pageSize=2&apiKey=fad964fe9bdd46d4b51e69e222dfc50e`)
+            const response = await axios.get(`https://newsapi.org/v2/everything?q=${post.product}&language=en&pageSize=10&apiKey=fad964fe9bdd46d4b51e69e222dfc50e`)
             setArticles(response.data.articles)
             console.log(response)
         }
