@@ -4,6 +4,7 @@ import cors from 'cors';
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
+// dotenv.config();
 
 const app = express();
 
@@ -14,8 +15,12 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
-const CONNECTION_URL = 'mongodb+srv://david1:david1@cluster0.q7cs7.mongodb.net/HelloApple?retryWrites=mtrue&w=majority';
+const CONNECTION_URL = process.env.MONGODB_URI ||'mongodb+srv://david1:david1@cluster0.q7cs7.mongodb.net/HelloApple?retryWrites=mtrue&w=majority';
 const PORT = process.env.PORT|| 5001;
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
