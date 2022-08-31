@@ -7,9 +7,10 @@ export default makeStyles((theme) => ({
     margin: '30px 0',
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '10px',
   },
   heading: {
     color: 'grey',
@@ -22,12 +23,14 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
+    flexWrap: 'wrap',
     width: '400px',
   },
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    flexWrap: 'wrap',
+    width: '300px',
   },
   userName: {
     display: 'flex',
