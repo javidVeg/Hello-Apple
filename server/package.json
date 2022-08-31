@@ -1,7 +1,7 @@
 {
-  "name": "Hello, Apple Server",
+  "name": "hello-apple-server",
   "version": "1.0.0",
-  "description": "Server for Hello, Apple web services",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
