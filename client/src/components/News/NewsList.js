@@ -17,7 +17,7 @@ const NewsList = () => {
         }
 
         getArticles()
-    }, [])
+    }, [post.product])
     return (
         <div key= "id">
             {articles.map(article => {

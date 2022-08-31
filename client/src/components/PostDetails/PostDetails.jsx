@@ -20,17 +20,17 @@ const Post = () => {
 
   useEffect(() => {
     dispatch(getPost(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
     }
-  }, [post]);
+  }, [dispatch, post]);
 
   if (!post) return null;
 
-  const openPost = (_id) => history.push(`/posts/${_id}`);
+ 
 
   if (isLoading) {
     return (

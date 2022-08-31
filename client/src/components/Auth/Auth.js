@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import AppleIcon from '@material-ui/icons/Apple';
-
 import Icon from './icon';
 import { signin, signup } from '../../actions/auth';
 import { AUTH } from '../../constants/actionTypes';

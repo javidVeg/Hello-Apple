@@ -4,7 +4,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 
@@ -46,8 +46,6 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   const openPost = (e) => {
-    // dispatch(getPost(post._id, history));
-
     history.push(`/posts/${post._id}`);
   };
 
@@ -74,7 +72,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: 'white' }}
             size="small"
           >
-            <EditIcon fontSize="default" />
+            <EditIcon fontSize="medium" />
           </Button>
         </div>
         )}
