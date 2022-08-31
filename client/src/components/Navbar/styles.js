@@ -15,6 +15,7 @@ export default makeStyles((theme) => ({
   heading: {
     color: 'grey',
     textDecoration: 'none',
+    marginLeft: '20px'
     
   },
   image: {
