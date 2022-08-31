@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AACA,KACI,kBAA4B,CAC5B,wDACJ,CAEA,EACI,wCACJ","file":"main.e00a4c22.chunk.css","sourcesContent":["\nbody {\n    background: rgb(199,199,199);\n    background: radial-gradient(circle, rgba(199,199,199,1) 0%, rgba(249,249,251,1) 75%);;\n}\n\n* {\n    font-family: 'Heebo', sans-serif !important;\n}"]}
