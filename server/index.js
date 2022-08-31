@@ -1,15 +1,9 @@
-// import dotenv from 'dotenv';
 import express from 'express';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-// import sendSms from './twilio.js'; 
-
-
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
-// dotenv.config();
 
 const app = express();
 
@@ -28,23 +22,3 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useFindAndModify', false);
-
-
-// const userDatabase = [];
-
-// // Create user endpoint
-// app.get('/user', (req, res) => {
-//   const { phoneNumber } = req.body;
-//   const user = {
-//     phoneNumber
-//   };
-
-//   const welcomeMessage = 'Welcome to Opalod! Your verification code is 54875';
-
-//   sendSms(user.phoneNumber, welcomeMessage);
-
-//   res.status(201).send({
-//     message: 'Account created successfully, kindly check your phone to activate your account!',
-//     data: user
-//   })
-// });
