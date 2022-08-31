@@ -1,10 +1,14 @@
+import * as dotenv from 'dotenv' 
+dotenv.config()
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
+import path from "path";
 
-// dotenv.config();
+//live
+
 
 const app = express();
 
@@ -15,11 +19,15 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
-const CONNECTION_URL = process.env.MONGODB_URI ||'mongodb+srv://david1:david1@cluster0.q7cs7.mongodb.net/HelloApple?retryWrites=mtrue&w=majority';
-const PORT = process.env.PORT|| 5001;
+const CONNECTION_URL = process.env.MONGO_URI;
+
+const PORT = process.env.PORT || 5001;
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static('client/build'))
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  })
 }
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
